@@ -72,9 +72,11 @@ const App: React.FC = () => {
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          {/* Left Column: Preview */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          {/* 1. Preview Section */}
+          {/* Mobile Order: 1st */}
+          {/* Desktop Placement: Row 1, Col 1-2 */}
+          <div className="lg:col-span-2">
+            <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold text-gray-800">Preview</h2>
               </div>
@@ -124,18 +126,12 @@ const App: React.FC = () => {
                 </div>
               )}
             </div>
-
-            {/* Footer Message */}
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 text-gray-700">
-               <p className="mb-2">Thank you for using this tool. No one likes boring, and boring isn't fun. So I thought to add a twist to LinkedIn profile pictures.</p>
-               <p className="mb-2">I appreciate your support and would love to hear your experience. If you like this, take a moment to leave a <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1wbg7FuDxIMd5JpeEsY1pAspOcTyD0_3Gp-maZkM7YiZIbQ/viewform?usp=sharing&ouid=111521219457272653574" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">review</a> so I can continue improving the product.</p>
-               <p>If you would like to stay connected or follow the journey, feel free to connect with me on <a href="https://www.linkedin.com/in/oscarinnocent/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">LinkedIn</a> as well : )</p>
-            </div>
-
           </div>
 
-          {/* Right Column: Controls */}
-          <div className="space-y-6">
+          {/* 2. Customization Section */}
+          {/* Mobile Order: 2nd */}
+          {/* Desktop Placement: Row 1-2, Col 3 (Spans 2 rows to push Footer below Preview) */}
+          <div className="space-y-6 lg:col-span-1 lg:row-span-2">
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-24">
               <h2 className="text-lg font-semibold text-gray-800 mb-6">Customization</h2>
               
@@ -252,6 +248,18 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* 3. Footer Section */}
+          {/* Mobile Order: 3rd */}
+          {/* Desktop Placement: Row 2, Col 1-2 (Flows naturally after Controls fills col 3) */}
+          <div className="lg:col-span-2">
+            <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 text-gray-700">
+               <p className="mb-2">Thank you for using this tool. No one likes boring, and boring isn't fun. So I thought to add a twist to LinkedIn profile pictures.</p>
+               <p className="mb-2">I appreciate your support and would love to hear your experience. If you like this, take a moment to leave a <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1wbg7FuDxIMd5JpeEsY1pAspOcTyD0_3Gp-maZkM7YiZIbQ/viewform?usp=sharing&ouid=111521219457272653574" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">review</a> so I can continue improving the product.</p>
+               <p>If you would like to stay connected or follow the journey, feel free to connect with me on <a href="https://www.linkedin.com/in/oscarinnocent/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">LinkedIn</a> as well : )</p>
+            </div>
+          </div>
+
         </div>
       </main>
       

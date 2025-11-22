@@ -104,8 +104,12 @@ export const CanvasEditor: React.FC<CanvasEditorProps> = ({ state, onDownload })
 
     canvas.width = width * dpr;
     canvas.height = height * dpr;
+    
+    // FIX: Set width style but DO NOT set height style.
+    // This allows CSS (h-auto) to maintain aspect ratio when width is squeezed.
     canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    // canvas.style.height = `${height}px`; // Removed
+    
     ctx.scale(dpr, dpr);
 
     // 1. Background
@@ -152,7 +156,6 @@ export const CanvasEditor: React.FC<CanvasEditorProps> = ({ state, onDownload })
       // Placeholder
       ctx.fillStyle = '#e5e7eb';
       ctx.fill();
-      // Removed the text drawing calls here as requested
     }
     ctx.restore();
 
@@ -193,7 +196,7 @@ export const CanvasEditor: React.FC<CanvasEditorProps> = ({ state, onDownload })
   }, [state, activeTheme, ringColor, ringText, fontSize]);
 
   return (
-    <div className="relative flex justify-center items-center bg-gray-100 border border-gray-200 rounded-xl overflow-hidden shadow-inner p-4 min-h-[450px]">
+    <div className="relative flex justify-center items-center bg-gray-100 border border-gray-200 rounded-xl overflow-hidden shadow-inner p-4 min-h-[320px] sm:min-h-[450px]">
       <canvas 
         id="main-canvas"
         ref={canvasRef} 
